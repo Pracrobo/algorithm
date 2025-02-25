@@ -9,14 +9,24 @@
 # 두번째부터 N개 줄에 동전 가치 Ai가 오름차순 (i가 2이상인 경우 Ai 는 Ai-1의배수, A1 = 1, 1<= Ai <= 1,000,000)
 ##  튜플로 정리해서 합계 내보기!!!
 
-N, K = map(int, input())
-coins = [int(input()) for _ in range (N)]
+N, K = map(int, input().split())
+coins = [int(input()) for _ in range(N)]
+coins.sort(reverse=True) #내림차순변경
+count = []
+total = 0
 for coin in coins:
-    if K / coin == 0: # 만약 coins의 리스트 값에 값/coin == 0 인게ㅇ 있다면
-        amount = K % coin  #amount에 값을 계산해서 갯수 넣어주고
-        coins.tuple = (coin, amount) # 튜플로
+    if K // coin > 0:
+        amount = K // coin
+        total += amount
     else:
-        coins.tuple(coin, 0)
+        amount = 0
+    count.append((coin, amount))
+    K %= coin
+
+answer = tuple(count)
+
+print(f'coins: {answer}')
+print(f'sum: {total}')
 
 
 
