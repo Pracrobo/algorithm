@@ -1,3 +1,5 @@
+# 10815번 숫자카드
+
 from bisect import bisect_left, bisect_right
 
 N = int(input()) # _ = int(input())
